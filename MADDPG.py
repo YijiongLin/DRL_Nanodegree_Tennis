@@ -30,11 +30,6 @@ class Actor:
         self.target = ActorNetwork(state_size, action_size, random_seed).to(self.DEVICE)
         self.optimizer = optim.Adam(self.local.parameters(), lr=self.LR)
         self.checkpoint_full_name = self.CHECKPOINT_FOLDER + 'cp_actor_' + str(self.agent_i) + '.pth'
-        # if checkpoint_folder != None:
-        #     self.checkpoint_full_name = self.CHECKPOINT_FOLDER + 'cp_actor_' + str(self.agent_i) + '.pth'
-        #     if os.path.isfile(self.checkpoint_full_name):
-        #         self.local.load_state_dict(torch.load(self.checkpoint_full_name))
-        #         self.target.load_state_dict(torch.load(self.checkpoint_full_name))
 
         self.memory = memory
         self.noise = noise
@@ -87,11 +82,6 @@ class Critic:
         self.target = CriticNetwork(state_size, action_size, random_seed).to(self.DEVICE)
         self.optimizer = optim.Adam(self.local.parameters(), lr=self.LR, weight_decay=self.WEIGHT_DECAY)
         self.checkpoint_full_name = self.CHECKPOINT_FOLDER + 'cp_critic.pth'
-        # if checkpoint_folder != None:
-        #     self.checkpoint_full_name = self.CHECKPOINT_FOLDER + 'cp_critic.pth'
-        #     if os.path.isfile(self.checkpoint_full_name):
-        #         self.local.load_state_dict(torch.load(self.checkpoint_full_name))
-        #         self.target.load_state_dict(torch.load(self.checkpoint_full_name))
 
     def step(self, actor, memory):
         experiences = memory.sample()        
