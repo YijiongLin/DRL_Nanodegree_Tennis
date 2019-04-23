@@ -1,4 +1,4 @@
-## Report on Reacher Continuous Control
+## Report on MADDPG of Tennis Game
 
 ### Model Architecture
 
@@ -43,14 +43,14 @@ And finally I find the third idea can be implement quite well, which overwhelm t
 
 ### 2. The Soft-update Parameter
 
-I set %\Tau% as 1e-4 fisrtly. It did improve agent's performance, but it cannot achieve the benchmark within 3000 episodes.Then I set it as 1e-2 and 1e-3, and here are the total reward during training process.
+I set $\Tau$ as 1e-4 fisrtly. It did improve agent's performance, but it cannot achieve the benchmark within 3000 episodes.Then I set it as 1e-2 and 1e-3, and here are the total reward during training process.
 
 
 <img src="MADDPG_Train_TAU_1e-2.png" width="500" height="340" />
 
 <img src="MADDPG_Train_TAU_1e-3.png" width="500" height="340" />
 
-The result is that when I set the %\Tau% to 1e-2, it converge to benchmark quite quickly, which took it 660 episode to achieve.
+The result is that when I set the $\Tau$ to 1e-2, it converge to benchmark quite quickly, which took it 660 episode to achieve.
 
 ## Future Work
 
